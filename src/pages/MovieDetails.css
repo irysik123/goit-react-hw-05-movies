@@ -1,0 +1,48 @@
+.movie_container {
+  margin-left: 20px;
+}
+
+.movie_box {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid black;
+}
+
+.movie_genre {
+  padding: 10px;
+}
+
+.add_info {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.back_link {
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0;
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back_link:hover {
+  cursor: pointer;
+  color: rgb(194, 36, 70);
+  font-weight: 600;
+}
+
+.movie_link{
+    text-decoration: none;
+    color: black;
+}
+
+.movie_link:hover {
+    cursor: pointer;
+    color: rgb(194, 36, 70);
+    font-weight: 600;
+  }
