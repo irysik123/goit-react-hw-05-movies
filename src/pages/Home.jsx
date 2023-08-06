@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BASE_URL, options } from 'utils/API';
-import List from 'components/List';
+import List from 'components/List/List';
 
 export default function Home() {
   const [trending, setTrending] = useState(null);

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { BASE_URL, options } from 'utils/API';
-import List from 'components/List';
+import List from 'components/List/List';
 /* import history from 'history/browser'; */
 import './Movies.css';
 import { useSearchParams } from 'react-router-dom';
