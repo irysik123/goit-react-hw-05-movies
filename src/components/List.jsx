@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import './List.css';
-/* import PropTypes from 'prop-types'; */
+import PropTypes from 'prop-types';
 
 export default function List({ list }) {
   const location = useLocation();
@@ -20,7 +20,7 @@ export default function List({ list }) {
   );
 }
 
-/* List.propTypes = {
+List.propTypes = {
   list: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
@@ -28,4 +28,4 @@ export default function List({ list }) {
 };
 
 
- */
+
