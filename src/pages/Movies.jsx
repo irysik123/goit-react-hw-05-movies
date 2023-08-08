@@ -41,28 +41,33 @@ const Movies = () => {
     </div>
   ); */
 
-  const [movieId, setMovieId] = useState("");
+  const [movieId, setMovieId] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
+  const [searchText, setSearchText] = useState('');
 
-  const grabMovies = useCallback((query) => { 
+  const handleChange = event => {
+    event.preventDefault();
+    setSearchText(event.target.value);
+  };
+
+  const grabMovies = useCallback(query => {
     fetch(
-    `${BASE_URL}/3/search/movie?include_adult=false&language=en-US&page=1&query=${query}`,
-    options
-  )
-    .then(data => data.json())
-    .then(data => setMovieId(data))
-    .catch(error => console.log(error));
-}, []);
+      `${BASE_URL}/3/search/movie?include_adult=false&language=en-US&page=1&query=${query}`,
+      options
+    )
+      .then(data => data.json())
+      .then(data => setMovieId(data))
+      .catch(error => console.log(error));
+  }, []);
 
-useEffect(() => {
-  if (query) {
-    grabMovies(query)
-  }
-}, [query, grabMovies])
+  useEffect(() => {
+    if (query) {
+      grabMovies(query);
+    }
+  }, [query, grabMovies]);
 
   const updateQueryString = evt => {
-    /* evt.preventDefault(); */
     const movieIdValue = evt.target.value;
     if (movieIdValue === '') {
       return setSearchParams({});
@@ -73,7 +78,15 @@ useEffect(() => {
   return (
     <div className="movie_search_box">
       <form onSubmit={updateQueryString}>
-        <input type="text" name="query" placeholder='Search movie' required className="movie_input" />
+        <input
+          type="text"
+          name="query"
+          placeholder="Search movie"
+          required
+          className="movie_input"
+          value={searchText}
+          onChange={handleChange}
+        />
         <button type="submit" className="search_btn">
           Search
         </button>
