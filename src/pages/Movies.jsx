@@ -62,6 +62,7 @@ useEffect(() => {
 }, [query, grabMovies])
 
   const updateQueryString = evt => {
+    /* evt.preventDefault(); */
     const movieIdValue = evt.target.value;
     if (movieIdValue === '') {
       return setSearchParams({});
