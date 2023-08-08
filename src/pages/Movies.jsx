@@ -47,7 +47,6 @@ const Movies = () => {
   const [searchText, setSearchText] = useState('');
 
   const handleChange = event => {
-    event.preventDefault();
     setSearchText(event.target.value);
   };
 
@@ -68,11 +67,11 @@ const Movies = () => {
   }, [query, grabMovies]);
 
   const updateQueryString = evt => {
-    const movieIdValue = evt.target.value;
-    if (movieIdValue === '') {
+    evt.preventDefault();
+    if (searchText === '') {
       return setSearchParams({});
     }
-    setSearchParams({ query: movieIdValue });
+    setSearchParams({ query: searchText });
   };
 
   return (
